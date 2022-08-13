@@ -1,30 +1,27 @@
 package MyUtils;
 
 import javax.swing.*;
-import java.util.Scanner;
+import java.util.Locale;
 
 public class App {
 
     public static void rodandoApp(){
 
-        String controle = "";
+        String option = JOptionPane.showInputDialog("""
+                Selecione uma opção:
+                1- Cadastrar nova tarefa.
+                2- Listar tarefas já cadastradas.
+                3- Deletar tarefa existente.
+                4- Para sair.""");
 
-        while(!controle.equalsIgnoreCase("sair")){
-
-            String nome = JOptionPane.showInputDialog("Nome da tarefa: ");
-            String descricao = JOptionPane.showInputDialog("Digite a descição: ");
-            String dataTermino = JOptionPane.showInputDialog("(dd/mm/aaaa)Data limite: ");
-            String categoria = JOptionPane.showInputDialog("Categoria: ");
-            String  status = JOptionPane.showInputDialog("Status: ");
-            String prioridade = JOptionPane.showInputDialog("(1 a 5)Prioridade da tarefa: ");
-
-            Tarefa tarefa = CriarTarefa.criarTarefa(nome, descricao, dataTermino, prioridade, categoria, status);
-            System.out.println(tarefa.toString());
-            CriadorDeTxt.criaArquivoTxt(tarefa);
-
-            controle = JOptionPane.showInputDialog("Para sair do cadastro de tarefas, digite 'sair'.");
+        switch (option.toLowerCase(Locale.ROOT)){
+            case "1" -> CaseCadastrarTarefa.actionCadastrar();
+            case "2" -> CaseListarTarefas.actionListar();
+            case "3" -> CaseDeletarTarefas.actionDeletar();
+            case "4" -> {
+                break;
+            }
+            default -> rodandoApp();
         }
-
-        System.out.println("\nTarefas cadastradas com sucesso!");
     }
 }
