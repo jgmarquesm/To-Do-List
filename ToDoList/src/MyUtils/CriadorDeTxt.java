@@ -8,7 +8,7 @@ public class CriadorDeTxt {
 
     public static void criaArquivoTxt(Tarefa tarefa) {
 
-        String path = "/home/notebook/Documentos/" + tarefa.getNome() +".txt";
+        String path = "/home/notebook/Área de Trabalho/Github/Projetos/AceleraZG/ZG-Hero_Project/ToDoList/out/Tarefas/" + tarefa.getNome() +".txt";
         String strFormatada = "Tarefa: " + tarefa.getNome() +
                 "\nPrioridade: " + tarefa.getPrioridade() +
                 "\nDescrição: " + tarefa.getDerscicao() +
@@ -19,9 +19,9 @@ public class CriadorDeTxt {
             File file = new File(path);
             if (file.createNewFile()) {
                 escreverNoArquivoTxt(file, strFormatada);
-                System.out.printf("%s criado com sucesso!", file.getName());
+                System.out.printf("%n%s criado com sucesso!%n", file.getName());
             } else {
-                System.out.printf("O arquivo %s já existe!", file.getName());
+                System.out.printf("%nO arquivo %s já existe!%n", file.getName());
             }
         } catch (IOException ex) {
             System.out.print("Erro inesperado.");
