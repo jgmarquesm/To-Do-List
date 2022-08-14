@@ -1,10 +1,12 @@
 package MyUtils;
 
 import javax.swing.*;
+import java.util.ArrayList;
 import java.util.Locale;
 
 public class App {
 
+    static ArrayList<String> addedTasks = new ArrayList<>();
     public static void rodandoApp(){
 
         String option = JOptionPane.showInputDialog("""
@@ -18,9 +20,7 @@ public class App {
             case "1" -> CaseCadastrarTarefa.actionCadastrar();
             case "2" -> CaseListarTarefas.actionListar();
             case "3" -> CaseDeletarTarefas.actionDeletar();
-            case "4" -> {
-                break;
-            }
+            case "4" -> {break;}
             default -> rodandoApp();
         }
     }

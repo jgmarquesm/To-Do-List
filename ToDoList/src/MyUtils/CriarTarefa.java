@@ -6,6 +6,8 @@ public class CriarTarefa {
                                    int prioridade, String categoria, String status){
 
         Tarefa tarefa = new Tarefa(nome, descricao, dataTermino, prioridade, categoria, status);
+
         return tarefa;
     }
+
 }

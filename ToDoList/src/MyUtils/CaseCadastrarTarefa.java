@@ -1,7 +1,6 @@
 package MyUtils;
 
 import javax.swing.*;
-import java.awt.*;
 
 public class CaseCadastrarTarefa {
 
@@ -32,6 +31,10 @@ public class CaseCadastrarTarefa {
         Tarefa tarefa = CriarTarefa.criarTarefa(nome, descricao, dataTermino, prioridade, categoria, status);
         ToDoList.adicionarTarefaNaLista(tarefa);
         CriadorDeTxt.criaArquivoTxt(tarefa);
+
+        FiltroDeCategorias.filtraCategorias(tarefa);
+        FiltroDeStatus.filtroStatus(tarefa);
+
         JOptionPane.showMessageDialog(null, "Tarefa cadastradaa com sucesso!");
         App.rodandoApp();
     }
