@@ -7,16 +7,16 @@ public class Tarefa implements Comparable<Tarefa>{
     private String descricao;
     private String dataTermino;
     private int prioridade;
-    private String categoria;
-    private String status;
+    Categorias categoria;
+    Status status;
 
     public Tarefa(String nome, String descricao, String dataTermino, int prioridade, String categoria, String status) {
         this.nome = nome;
         this.descricao = descricao;
         this.dataTermino = dataTermino;
         this.prioridade = prioridade;
-        this.categoria = categoria;
-        this.status = status;
+        this.categoria = new Categorias(categoria);
+        this.status = new Status(status);
     }
 
     public String getNome() {
@@ -52,19 +52,19 @@ public class Tarefa implements Comparable<Tarefa>{
     }
 
     public String getCategoria() {
-        return categoria;
+        return categoria.toString();
     }
 
     public void setCategoria(String categoria) {
-        this.categoria = categoria;
+        this.categoria = new Categorias(categoria);
     }
 
     public String getStatus() {
-        return status;
+        return status.toString();
     }
 
     public void setStatus(String status) {
-        this.status = status;
+        this.status = new Status(status);
     }
 
     @Override
@@ -82,14 +82,4 @@ public class Tarefa implements Comparable<Tarefa>{
             return 1;
         } else return 0;
     }
-
-//    public String compareToCategory(Tarefa o){
-//
-//        ArrayList<Tarefa> tarefas = new ArrayList<>();
-//        for (Tarefa tarefa : tarefas) {
-//            if (o.getCategoria().equalsIgnoreCase(tarefa.getCategoria())) {
-//
-//            }
-//        }
-//    }
 }

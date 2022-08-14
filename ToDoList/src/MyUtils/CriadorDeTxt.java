@@ -9,12 +9,10 @@ public class CriadorDeTxt {
     public static void criaArquivoTxt(Tarefa tarefa) {
 
         String path = "/home/notebook/Área de Trabalho/Github/Projetos/AceleraZG/ZG-Hero_Project/ToDoList/out/Tarefas/" + tarefa.getNome() +".txt";
-        String strFormatada = "Tarefa: " + tarefa.getNome() +
-                "\nPrioridade: " + tarefa.getPrioridade() +
-                "\nDescrição: " + tarefa.getDerscicao() +
-                "\nStatus: " + tarefa.getStatus() +
-                "\nData limite: " + tarefa.getDataTermino() +
-                "\nCategoria: " + tarefa.getCategoria();
+        String strFormatada = "[{\"title\":" + "\"" + tarefa.getNome() + "\"" + "},{\"description\":" + "\"" +
+                tarefa.getDerscicao() + "\"" + "},{\"deadLine\":"  + "\"" + tarefa.getDataTermino() + "\"" + "}," +
+                "{\"priority\":" + "\"" + tarefa.getPrioridade() + "\"" + "}, {\"category\":" + "\"" + tarefa.getCategoria()
+                + "\"" + "},{\"status\":" + "\"" + tarefa.getStatus() + "\"" + "}]";
         try {
             File file = new File(path);
             if (file.createNewFile()) {

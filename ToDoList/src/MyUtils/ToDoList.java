@@ -29,4 +29,16 @@ public class ToDoList {
         }
         return str;
     }
+
+    public String readPorCategoria(){
+        String str = "POR CATEGORIA";
+
+        return str;
+    }
+
+    public String readPorStatus(){
+        String str = "POR STATUS";
+
+        return str;
+    }
 }
