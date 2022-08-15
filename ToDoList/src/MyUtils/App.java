@@ -1,12 +1,10 @@
 package MyUtils;
 
 import javax.swing.*;
-import java.util.ArrayList;
 import java.util.Locale;
 
 public class App {
 
-    static ArrayList<String> addedTasks = new ArrayList<>();
     public static void rodandoApp(){
 
         String option = JOptionPane.showInputDialog("""

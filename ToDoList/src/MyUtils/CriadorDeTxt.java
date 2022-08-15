@@ -10,7 +10,7 @@ public class CriadorDeTxt {
 
         String path = "/home/notebook/Área de Trabalho/Github/Projetos/AceleraZG/ZG-Hero_Project/ToDoList/src/Tarefas/" + tarefa.getNome() +".txt";
         String strFormatada = "[{\"titulo\":" + "\"" + tarefa.getNome() + "\"" + "},{\"descricao\":" + "\"" +
-                tarefa.getDerscicao() + "\"" + "},{\"datLimite\":"  + "\"" + tarefa.getDataTermino() + "\"" + "}," +
+                tarefa.getDerscicao() + "\"" + "},{\"dataLimite\":"  + "\"" + tarefa.getDataTermino() + "\"" + "}," +
                 "{\"prioridade\":" + "\"" + tarefa.getPrioridade() + "\"" + "}, {\"categoria\":" + "\"" + tarefa.getCategoria()
                 + "\"" + "},{\"status\":" + "\"" + tarefa.getStatus() + "\"" + "}]";
         try {
@@ -27,7 +27,7 @@ public class CriadorDeTxt {
         }
     }
 
-    public static void escreverNoArquivoTxt(File file, String str){
+    private static void escreverNoArquivoTxt(File file, String str){
 
         try {
             FileWriter myWriter = new FileWriter(file.getPath());

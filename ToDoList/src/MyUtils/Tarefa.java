@@ -1,6 +1,5 @@
 package MyUtils;
 
-import java.util.ArrayList;
 
 public class Tarefa implements Comparable<Tarefa>{
     private String nome;
@@ -76,10 +75,6 @@ public class Tarefa implements Comparable<Tarefa>{
 
     @Override
     public int compareTo(Tarefa o) {
-        if (this.getPrioridade() > o.getPrioridade()){
-            return -1;
-        } else if (o.getPrioridade() > this.getPrioridade()) {
-            return 1;
-        } else return 0;
+        return Integer.compare(o.getPrioridade(), this.getPrioridade());
     }
 }

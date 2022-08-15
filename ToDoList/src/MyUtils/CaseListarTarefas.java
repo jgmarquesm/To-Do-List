@@ -15,15 +15,9 @@ public class CaseListarTarefas {
                 4- Para voltar.""");
 
         switch (option.toLowerCase(Locale.ROOT)) {
-            case "1" -> {
-                LerEParsearArquivos.filtroPorAtributo("prioridade");
-            }
-            case "2" -> {
-                LerEParsearArquivos.filtroPorAtributo("categoria");
-            }
-            case "3" -> {
-                LerEParsearArquivos.filtroPorAtributo("status");
-            }
+            case "1" -> LerEParsearArquivos.filtroPorAtributo("prioridade");
+            case "2" -> LerEParsearArquivos.filtroPorAtributo("categoria");
+            case "3" -> LerEParsearArquivos.filtroPorAtributo("status");
             case "4" -> {break;}
         }
         App.rodandoApp();

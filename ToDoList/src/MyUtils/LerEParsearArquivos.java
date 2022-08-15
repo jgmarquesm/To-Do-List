@@ -15,7 +15,7 @@ public class LerEParsearArquivos {
         ArrayList<String> arquivos = new ArrayList<>();
 
         for (File file : listOfFiles) {
-        String str = "";
+        StringBuilder str = new StringBuilder();
             if (file.isFile() && file.getName().endsWith(".txt")) {
 
                 try (FileReader fileReader = new FileReader(file);
@@ -24,7 +24,7 @@ public class LerEParsearArquivos {
                     String line = bufferedReader.readLine();
 
                     while (line != null){
-                        str += line + "\n";
+                        str.append(line).append("\n");
                         line = bufferedReader.readLine();
                     }
                 } catch (FileNotFoundException e) {
@@ -35,16 +35,14 @@ public class LerEParsearArquivos {
                     throw new RuntimeException(e);
                 }
             }
-            arquivos.add(str);
+            arquivos.add(str.toString());
         }
         return arquivos;
     }
 
     public static void printTarefas(LinkedHashSet<String> lista){
 
-        LinkedHashSet<String> arquivos = lista;
-
-        for (String arquivo : arquivos){
+        for (String arquivo : lista){
 
             System.out.println(arquivo);
             System.out.println();
@@ -87,7 +85,7 @@ public class LerEParsearArquivos {
                 final Pattern pattern = Pattern.compile(regex, Pattern.MULTILINE);
                 final Matcher matcher = pattern.matcher(arquivo);
 
-                if (matcher.find() && matcher.group(2).equals(a)){
+                if (matcher.find() && matcher.group(2).equalsIgnoreCase(a)){
                     linkedHashSetArquivos.add(arquivo);
                 }
             }

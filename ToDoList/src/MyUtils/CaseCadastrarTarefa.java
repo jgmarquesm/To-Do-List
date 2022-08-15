@@ -2,6 +2,9 @@ package MyUtils;
 
 import javax.swing.*;
 
+import static MyUtils.CriadorDeTxt.criaArquivoTxt;
+import static MyUtils.CriarTarefa.*;
+
 public class CaseCadastrarTarefa {
 
     public static void actionCadastrar(){
@@ -28,8 +31,8 @@ public class CaseCadastrarTarefa {
             prioridade = 5;
         }
 
-        Tarefa tarefa = CriarTarefa.criarTarefa(nome, descricao, dataTermino, prioridade, categoria, status);
-        CriadorDeTxt.criaArquivoTxt(tarefa);
+        Tarefa tarefa = criarTarefa(nome, descricao, dataTermino, prioridade, categoria,status);
+        criaArquivoTxt(tarefa);
 
         JOptionPane.showMessageDialog(null, "Tarefa cadastradaa com sucesso!");
         App.rodandoApp();
