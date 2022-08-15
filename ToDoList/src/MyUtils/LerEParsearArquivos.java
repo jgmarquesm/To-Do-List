@@ -2,14 +2,15 @@ package MyUtils;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class LerEParsearArquivos {
 
-    public static void lerArquivos(){
+    private static ArrayList<String> lerArquivos(){
 
-        File folder = new File("/home/notebook/Área de Trabalho/Github/Projetos/AceleraZG/ZG-Hero_Project/ToDoList/out/Tarefas");
+        File folder = new File("/home/notebook/Área de Trabalho/Github/Projetos/AceleraZG/ZG-Hero_Project/ToDoList/src/Tarefas");
         File[] listOfFiles = folder.listFiles();
         ArrayList<String> arquivos = new ArrayList<>();
 
@@ -36,22 +37,61 @@ public class LerEParsearArquivos {
             }
             arquivos.add(str);
         }
+        return arquivos;
+    }
+
+    public static void printTarefas(LinkedHashSet<String> lista){
+
+        LinkedHashSet<String> arquivos = lista;
+
         for (String arquivo : arquivos){
-            parsearArquivos(arquivo);
+
+            System.out.println(arquivo);
+            System.out.println();
         }
     }
 
-    private static void parsearArquivos(String arquivo){
+    private static ArrayList<String> filtrarVariacoesDoAtributo(String atributo){
 
-        final String regex = "\"([^\"]+)\":[\"]*([^,^\\}^\"]+)";
+        ArrayList<String> arquivos = lerArquivos();
+        ArrayList<String> atributos = new ArrayList<>();
 
-        final Pattern pattern = Pattern.compile(regex);
-        final Matcher matcher = pattern.matcher(arquivo);
+        final String regex = "\\\"([" + atributo + "]+)\\\":[\\\"]*([^,^\\\\\\}^\\\"]+)";
 
-        if (matcher.find()) {
-            for (int i = 2; i <= matcher.groupCount(); i += 2) {
-                System.out.println(matcher.group(i));
+        for (String arquivo : arquivos) {
+
+            final Pattern pattern = Pattern.compile(regex, Pattern.MULTILINE);
+            final Matcher matcher = pattern.matcher(arquivo);
+
+            if (matcher.find()){
+                atributos.add(matcher.group(2));
             }
         }
+        return atributos;
+    }
+
+    public static void filtroPorAtributo(String atributo){
+
+        ArrayList<String> atributos = filtrarVariacoesDoAtributo(atributo);
+        LinkedHashSet<String> linkedHashSetArquivos = new LinkedHashSet<>();
+
+        for (String a : atributos) {
+
+        ArrayList<String> arquivos = lerArquivos();
+//            Regex para filtrar atributo e tipo de atributo
+//            final String regex = "\\\"([" + atributo + "]+)\\\":\\\"([" + a + "]+)\\\"";
+            final String regex = "\\\"([" + atributo + "]+)\\\":[\\\"]*([^,^\\\\\\}^\\\"]+)";
+
+            for (String arquivo : arquivos) {
+
+                final Pattern pattern = Pattern.compile(regex, Pattern.MULTILINE);
+                final Matcher matcher = pattern.matcher(arquivo);
+
+                if (matcher.find() && matcher.group(2).equals(a)){
+                    linkedHashSetArquivos.add(arquivo);
+                }
+            }
+        }
+        printTarefas(linkedHashSetArquivos);
     }
 }

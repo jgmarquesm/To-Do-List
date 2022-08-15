@@ -10,7 +10,7 @@ public class CaseDeletarTarefas {
         String nome = JOptionPane.showInputDialog("Digite o nome da tarefa que deseja apagar:");
 
         try {
-            String path = "/home/notebook/Área de Trabalho/Github/Projetos/AceleraZG/ZG-Hero_Project/ToDoList/out/Tarefas/" + nome + ".txt";
+            String path = "/home/notebook/Área de Trabalho/Github/Projetos/AceleraZG/ZG-Hero_Project/ToDoList/src/Tarefas/" + nome + ".txt";
             File file = new File(path);
             if (file.delete()){
                 JOptionPane.showMessageDialog(null, file.getName() + " apagado com sucesso!");
