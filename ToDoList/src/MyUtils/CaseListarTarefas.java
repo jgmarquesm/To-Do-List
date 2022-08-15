@@ -12,29 +12,20 @@ public class CaseListarTarefas {
                 1- Por Prioridade.
                 2- Por Categoria.
                 3- Por Status.
-                4- Para sair.""");
+                4- Para voltar.""");
 
         switch (option.toLowerCase(Locale.ROOT)) {
             case "1" -> {
-                try {
-                    String listaDeTarefas = new ToDoList().readPorPrioridade();
-                    System.out.println(listaDeTarefas + "\n");
-                } finally {
-                    LerEParsearArquivos.lerArquivos();
-                }
-                App.rodandoApp();
+                LerEParsearArquivos.filtroPorAtributo("prioridade");
             }
             case "2" -> {
-                String listaDeTarefasPorCategoria = new ToDoList().readPorCategoria();
-                System.out.println(listaDeTarefasPorCategoria + "\n");
-                App.rodandoApp();
+                LerEParsearArquivos.filtroPorAtributo("categoria");
             }
             case "3" -> {
-                String listaDeTarefasPorStatus = new ToDoList().readPorStatus();
-                System.out.println(listaDeTarefasPorStatus + "\n");
-                App.rodandoApp();
+                LerEParsearArquivos.filtroPorAtributo("status");
             }
             case "4" -> {break;}
         }
+        App.rodandoApp();
     }
 }

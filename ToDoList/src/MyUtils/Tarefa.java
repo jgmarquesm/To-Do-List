@@ -7,16 +7,16 @@ public class Tarefa implements Comparable<Tarefa>{
     private String descricao;
     private String dataTermino;
     private int prioridade;
-    Categorias categoria;
-    Status status;
+    private String categoria;
+    private String status;
 
     public Tarefa(String nome, String descricao, String dataTermino, int prioridade, String categoria, String status) {
         this.nome = nome;
         this.descricao = descricao;
         this.dataTermino = dataTermino;
         this.prioridade = prioridade;
-        this.categoria = new Categorias(categoria);
-        this.status = new Status(status);
+        this.categoria = categoria;
+        this.status = status;
     }
 
     public String getNome() {
@@ -52,26 +52,26 @@ public class Tarefa implements Comparable<Tarefa>{
     }
 
     public String getCategoria() {
-        return categoria.toString();
+        return categoria;
     }
 
     public void setCategoria(String categoria) {
-        this.categoria = new Categorias(categoria);
+        this.categoria = categoria;
     }
 
     public String getStatus() {
-        return status.toString();
+        return status;
     }
 
     public void setStatus(String status) {
-        this.status = new Status(status);
+        this.status = status;
     }
 
     @Override
     public String toString() {
-        return "\n{\nTarefa: [\n{\"title\": " + nome + "}, {\"description\": " + descricao +
-                "}, {\"deadLine\":"  + dataTermino + "}, {\"priority\": " + prioridade +
-                "}, {\"category\": " + categoria + "}, {\"status\": " + status + "}\n]\n}";
+        return "\n{\nTarefa: [\n{\"titulo\": " + nome + "}, {\"descricao\": " + descricao +
+                "}, {\"dataLimite\":"  + dataTermino + "}, {\"prioridade\": " + prioridade +
+                "}, {\"categoria\": " + categoria + "}, {\"status\": " + status + "}\n]\n}";
     }
 
     @Override
