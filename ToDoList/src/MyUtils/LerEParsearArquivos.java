@@ -10,7 +10,8 @@ public class LerEParsearArquivos {
 
     private static ArrayList<String> lerArquivos(){
 
-        File folder = new File("/home/notebook/Área de Trabalho/Github/Projetos/AceleraZG/ZG-Hero_Project/ToDoList/src/Tarefas");
+        String path = "/home/notebook/Área de Trabalho/Github/Projetos/AceleraZG/ZG-Hero_Project/ToDoList/src/Tarefas";
+        File folder = new File(path);
         File[] listOfFiles = folder.listFiles();
         ArrayList<String> arquivos = new ArrayList<>();
 
@@ -75,9 +76,9 @@ public class LerEParsearArquivos {
 
         for (String a : atributos) {
 
-        ArrayList<String> arquivos = lerArquivos();
-//            Regex para filtrar atributo e tipo de atributo
-//            final String regex = "\\\"([" + atributo + "]+)\\\":\\\"([" + a + "]+)\\\"";
+            ArrayList<String> arquivos = lerArquivos();
+//                Regex para filtrar atributo e tipo de atributo
+//                final String regex = "\\\"([" + atributo + "]+)\\\":\\\"([" + a + "]+)\\\"";
             final String regex = "\\\"([" + atributo + "]+)\\\":[\\\"]*([^,^\\\\\\}^\\\"]+)";
 
             for (String arquivo : arquivos) {

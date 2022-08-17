@@ -15,13 +15,12 @@ public class CaseDeletarTarefas {
             if (file.delete()){
                 JOptionPane.showMessageDialog(null, file.getName() + " apagado com sucesso!");
             } else {
-                JOptionPane.showMessageDialog(null, "Delete falhou");
+                JOptionPane.showMessageDialog(null, "Erro ao deletar o arquivo: " + file.getName() + ".");
             }
         } catch(Exception e) {
             JOptionPane.showMessageDialog(null, "Não foi possível deletar o arquivo.");
         } finally {
             App.rodandoApp();
         }
-
     }
 }

@@ -3,7 +3,7 @@ package MyUtils;
 import javax.swing.*;
 
 import static MyUtils.CriadorDeTxt.criaArquivoTxt;
-import static MyUtils.CriarTarefa.*;
+import static MyUtils.Tarefa.criarTarefa;
 
 public class CaseCadastrarTarefa {
 
@@ -17,17 +17,16 @@ public class CaseCadastrarTarefa {
         String categoria = JOptionPane.showInputDialog("Categoria: ");
         String  status = JOptionPane.showInputDialog("Status: ");
         String prioridadeStr = JOptionPane.showInputDialog("(1 a 5)Prioridade da tarefa: ");
+
         if (prioridadeStr.equals("1")){
             prioridade = 1;
         } else if (prioridadeStr.equals("2")){
             prioridade = 2;
         } else if (prioridadeStr.equals("3")){
             prioridade = 3;
-        }
-        else if (prioridadeStr.equals("4")){
+        } else if (prioridadeStr.equals("4")){
             prioridade = 4;
-        }
-        else if (prioridadeStr.equals("5")){
+        } else if (prioridadeStr.equals("5")){
             prioridade = 5;
         }
 

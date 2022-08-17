@@ -22,48 +22,30 @@ public class Tarefa implements Comparable<Tarefa>{
         return nome;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
     public String getDerscicao() {
         return descricao;
-    }
-
-    public void setDerscicao(String descricao) {
-        this.descricao = descricao;
     }
 
     public String getDataTermino() {
         return dataTermino;
     }
 
-    public void setDataTermino(String dataTermino) {
-        this.dataTermino = dataTermino;
-    }
-
     public int getPrioridade() {
         return prioridade;
-    }
-
-    public void setPrioridade(int prioridade) {
-        this.prioridade = prioridade;
     }
 
     public String getCategoria() {
         return categoria;
     }
 
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
-    }
-
     public String getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public static Tarefa criarTarefa(String nome, String descricao, String dataTermino,
+                                     int prioridade, String categoria, String status){
+
+        return new Tarefa(nome, descricao, dataTermino, prioridade, categoria, status);
     }
 
     @Override
