@@ -23,5 +23,5 @@ implementações):
 `[{"titulo":""},{"descricao":""},{"dataLimite":""},{"prioridade":""},{"categoria":""},{"status":""}]`
 </p>
 
-<h6>Vídeo de demonstração: <a href="https://www.linkedin.com/posts/jgmarquesm_acelerazg-versionamento-caejdigo-activity-6964988342270603264-B3LF?utm_source=linkedin_share&utm_medium=member_desktop_web">clique aqui</a>.</h6>
+<h6>Vídeo de demonstração: <a href="https://www.linkedin.com/posts/jgmarquesm_acelerazg-versionamento-caejdigo-activity-6964988342270603264-B3LF?utm_source=linkedin_share&utm_medium=member_desktop_web" target="_blank">clique aqui</a>.</h6>
 
