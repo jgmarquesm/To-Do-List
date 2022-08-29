@@ -1,0 +1,80 @@
+body {
+    justify-content: center;
+    background-color: rgb(140, 180, 255);
+}
+
+.main-container {
+    height: 562px;
+    position: relative;
+    background-color: rgb(140, 180, 255);
+}
+
+.main-center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.testando {
+    height: 560px;
+    position: relative;
+}
+
+#navbar {
+    font-family: 'Kanit', sans-serif;
+}
+
+#main1 {
+    color: rgb(30, 70, 125);
+    font-family: 'Oooh Baby', cursive;
+    font-weight: bold;
+    font-size: 35px;
+    margin: 0;
+}
+
+#typewriter {
+    color: rgb(30, 70, 125);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 130px;
+    overflow: hidden;
+    border-right: .15em solid rgb(25, 35, 95);
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: .05em;
+    animation: typing 1s steps(30, end), blink-caret .8s step-end infinite;
+}
+
+.home-link {
+    font-size: 24px;
+    font-weight: bold;
+    color: #007bff;
+    margin-right: 20px;
+}
+
+
+/* The typing effect */
+
+@keyframes typing {
+    from {
+        width: 0
+    }
+    to {
+        width: 100%
+    }
+}
+
+
+/* The typewriter cursor effect */
+
+@keyframes blink-caret {
+    from,
+    to {
+        border-color: transparent
+    }
+    50% {
+        border-color: #000
+    }
+}
