@@ -1,27 +1,15 @@
-<h2>ToDo List</h2>
-<h4> Foi implementado o CRD de tasks na lista de tarefa.</h4>
-<p>Ao executar o App, uma janela do JOptionPane se abre mostrando
-as opções:</p>
+<h2>To Do List</h2>
 
-- Cadastrar nova tarefa.
-
-- Listar tarefas já existentes:
-    - Listar por prioidade (de 1 a 5);
-    - Listar por categoria;
-    - Listar por status;
-    - Voltar;
-
-- Deletar tarefa existente.
-- Sair.
-
-<p>São feitas algumas validações para que uma entrada inválida
-do usuário não afete o funcionamento do App.
-Para persistencia das tasks, elas são salvas no formato .txt 
-e o conteúdo é salvo estilo JSON (para facilitar as futuras 
-implementações):
-
-`[{"titulo":""},{"descricao":""},{"dataLimite":""},{"prioridade":""},{"categoria":""},{"status":""}]`
+<p>
+Neste projeto, utilizei Java puro para fazer o Backend da versão MVP do produto. Essa implementação pode ser vista <a href="https://github.com/jgmarquesm/To-Do-List/tree/main/Backend">aqui</a>.
 </p>
+<h6>Vídeo de demonstração do backend-MVP feito em Java Puro: <a href="https://www.linkedin.com/posts/jgmarquesm_acelerazg-versionamento-caejdigo-activity-6964988342270603264-B3LF?utm_source=linkedin_share&utm_medium=member_desktop_web">clique aqui</a>.</h6>
 
-<h6>Vídeo de demonstração: <a href="https://www.linkedin.com/posts/jgmarquesm_acelerazg-versionamento-caejdigo-activity-6964988342270603264-B3LF?utm_source=linkedin_share&utm_medium=member_desktop_web" target="_blank">clique aqui</a>.</h6>
+
+<p>
+Já para a construção do Frontend Web do produto, utilizei, além de html e css, Javascript e Bootstrap.
+Pode encontrar essa implementação <a href="https://github.com/jgmarquesm/To-Do-List/tree/main/Frontend">aqui</a>.
+</p>
+<h6>Vídeo de demonstração Frontend: <a href="https://www.linkedin.com/feed/update/urn:li:activity:6970224757749235712/">clique aqui</a>.</h6>
+
 
