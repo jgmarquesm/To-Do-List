@@ -21,7 +21,37 @@ document.getElementById("deletar-tarefa").onclick = function() {
 var tarefas = [];
 var tarefa;
 
+function hideATag(idElement) {
+    var element = document.getElementById(idElement);
+    element.style.visibility = "hidden";
+}
+
+function showATag(idElement) {
+    var element = document.getElementById(idElement);
+    element.style.visibility = "visible";
+}
+
+function showAlert(msg) {
+
+    document.getElementById("alertas").innerHTML = msg;
+    showATag("alertas");
+    setTimeout(function() {
+        document.getElementById("alertas").innerHTML = "";
+    }, 2000);
+
+}
+
+hideATag("table-listar");
+hideATag("alertas")
+
 document.getElementById("salvar-nova-tarefa").onclick = function() {
+
+
+    var alertaCriar = `
+    <div class="alert alert-success" role="alert">
+        Tarefa criada com sucesso.
+    </div>
+    `;
 
     var titulo = document.getElementById("criar-titulo").value;
     var descricao = document.getElementById("criar-desc").value;
@@ -33,59 +63,116 @@ document.getElementById("salvar-nova-tarefa").onclick = function() {
     tarefa = `{"titulo": "${titulo}", "descricao": "${descricao}", "dataLimite": "${dataLimite}", "prioridade": "${prioridade}", "categoria": "${categoria}", "status": "${status}"}`;
     tarefaJSON = JSON.parse(tarefa);
     tarefas.push(tarefaJSON);
+
+    $("#modal-criar-tarefa").modal("hide");
+
+    showAlert(alertaCriar);
 }
 
 
-function hideATag(idElement) {
-    var element = document.getElementById(idElement);
-    element.style.visibility = "hidden";;
-}
-
-function showATag(idElement) {
-    var element = document.getElementById(idElement);
-    element.style.visibility = "visible";
-}
-
-hideATag("table-listar");
-
-document.getElementById("listar-status").onchange = function() {
+document.getElementById("listar-tarefas-status").onclick = function() {
 
     showATag("table-listar");
-    console.log(tarefas);
 
     let status = document.getElementById("listar-status").value;
     var divListar = document.getElementById("body-tabela-listar").innerHTML;
     divListar = "";
 
-    if (status == "todo") {
-        alert("Oops! Estamos trabalhando nisso ainda.")
-    } else if (status == "doing") {
-        alert("Oops! Estamos trabalhando nisso ainda.")
-    } else if (status == "done") {
-        alert("Oops! Estamos trabalhando nisso ainda.")
-    } else {
-
-        for (let i = 0; i < tarefas.length; i++) {
+    for (let task of tarefas) {
+        if (task.status == status) {
             divListar += `
-        <tr>
-            <th scope="row">${tarefas[i].titulo}</th>
-            <td>${tarefas[i].descricao}</td>
-            <td>${tarefas[i].prioridade}</td>
-            <td>${tarefas[i].status}</td>
-            <td>${tarefas[i].dataLimite}</td>
-            <td>${tarefas[i].categoria}</td>
-        </tr>
-        `
+            <tr>
+                <th scope="row">${task.titulo}</th>
+                <td>${task.descricao}</td>
+                <td>${task.prioridade}</td>
+                <td>${task.status}</td>
+                <td>${task.dataLimite}</td>
+                <td>${task.categoria}</td>
+            </tr>
+            `
+        } else if (status == status) {
+            divListar += `
+            <tr>
+                <th scope="row">${task.titulo}</th>
+                <td>${task.descricao}</td>
+                <td>${task.prioridade}</td>
+                <td>${task.status}</td>
+                <td>${task.dataLimite}</td>
+                <td>${task.categoria}</td>
+            </tr>
+            `
+        } else if (status == status) {
+            divListar += `
+            <tr>
+                <th scope="row">${task.titulo}</th>
+                <td>${task.descricao}</td>
+                <td>${task.prioridade}</td>
+                <td>${task.status}</td>
+                <td>${task.dataLimite}</td>
+                <td>${task.categoria}</td>
+            </tr>
+            `
+        } else {
+            divListar += `
+            <tr>
+                <th scope="row">${task.titulo}</th>
+                <td>${task.descricao}</td>
+                <td>${task.prioridade}</td>
+                <td>${task.status}</td>
+                <td>${task.dataLimite}</td>
+                <td>${task.categoria}</td>
+            </tr>
+            `
         }
     }
     document.getElementById("body-tabela-listar").innerHTML = divListar;
+}
+
+document.getElementById("update-tarefa").onclick = function() {
+
+    var tituloTarefaParaAtualizar = document.getElementById("titulo-atualizar").value;
+    console.log(tituloTarefaParaAtualizar);
+    var alertaUpdate = "";
+
+    for (let task of tarefas) {
+        console.log(task);
+        if (tituloTarefaParaAtualizar == task.titulo) {
+            var titulo = tituloTarefaParaAtualizar;
+            var descricao = document.getElementById("atualizar-desc").value;
+            var dataLimite = document.getElementById("atualizar-data").value;
+            var prioridade = document.getElementById("atualizar-prioridade").value;
+            var categoria = document.getElementById("atualizar-cat").value;
+            var status = document.getElementById("atualizar-status").value;
+            tarefa = `{"titulo": "${titulo}", "descricao": "${descricao}", "dataLimite": "${dataLimite}", "prioridade": "${prioridade}", "categoria": "${categoria}", "status": "${status}"}`;
+            tarefaJSON = JSON.parse(tarefa);
+            tarefas.push(tarefaJSON);
+
+            alertaUpdate = `
+            <div class="alert alert-success" role="alert">
+                Tarefa atualizada com sucesso.
+            </div>
+            `
+            setInterval(showAlert(alertaUpdate), 2000);
+
+            break;
+        } else {
+            alertaUpdate = `
+            <div class="alert alert-danger" role="alert">
+                Essa tarefa não está cadastrada.
+            </div>
+            `
+            setInterval(showAlert(alertaUpdate), 2000);
+        }
+    }
+
+    $("#modal-atualizar-tarefa").modal("hide");
 }
 
 document.getElementById("apagar-tarefa").onclick = function() {
 
     var tarefaApagada = document.getElementById("apagar-tarefa-titulo").value;
     var apagar;
-
+    var alertaDeletar = "";
 
     for (let task of tarefas) {
         console.log(task.titulo);
@@ -97,7 +184,20 @@ document.getElementById("apagar-tarefa").onclick = function() {
 
     if (apagar) {
         tarefas = tarefas.filter((item) => item.titulo !== tarefaApagada);
+        alertaDeletar = `
+        <div class="alert alert-success" role="alert">
+            Tarefa apagada com sucesso.
+        </div>
+        `
+        setInterval(showAlert(alertaDeletar), 2000);
     } else {
-        alert("Verifque a lista de tarefas!");
+        alertaDeletar = `
+        <div class="alert alert-danger" role="alert">
+            Essa tarefa não está cadastrada.
+        </div>
+        `
+        setInterval(showAlert(alertaDeletar), 2000);
     }
+
+    $("#modal-deletar-tarefa").modal("hide");
 }

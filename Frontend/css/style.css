@@ -1,12 +1,15 @@
-body {
+#body {
     justify-content: center;
     background-color: rgb(140, 180, 255);
+}
+
+#alertas {
+    text-align: center;
 }
 
 .main-container {
     height: 562px;
     position: relative;
-    background-color: rgb(140, 180, 255);
 }
 
 .main-center {

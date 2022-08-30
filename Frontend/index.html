@@ -19,7 +19,7 @@
     <title>To Do List</title>
 </head>
 
-<body>
+<body id="body">
 
     <div id="navbar">
         <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #aed9f8;">
@@ -48,10 +48,9 @@
         </nav>
     </div>
 
-    <div id="alertas"></div>
-
     <div class="main-container">
         <div class="main-center">
+            <div id="alertas"></div>
             <p id="main1">Acho que preciso de uma ...</p>
             <p id="typewriter">To Do List.</p>
         </div>
@@ -158,6 +157,7 @@
 
                 </div>
                 <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="listar-tarefas-status">Listar tarefa</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                 </div>
             </div>
@@ -177,28 +177,28 @@
                     <form action="" method="POST">
                         <div class="form-group">
                             <label>Título da tarefa</label><br>
-                            <input type="text" class="form-control" placeholder="Ex: ZG-Hero Project de Javascript">
+                            <input type="text" class="form-control" id="titulo-atualizar" placeholder="Ex: ZG-Hero Project de Javascript">
                             <span class="text-muted">Não use nomes de tarefas já existentes.</span>
                         </div>
                         <br>
                         <div>
                             <label for="typetext">Descrição</label><br>
-                            <input type="text" class="form-control" placeholder="Ex: Fazer Frontend, etc...">
+                            <input type="text" class="form-control" id="atualizar-desc" placeholder="Ex: Fazer Frontend, etc...">
                         </div>
                         <br>
                         <div>
                             <label for="typedate">Deadline para entrega</label><br>
-                            <input type="date" class="form-control">
+                            <input type="date" id="atualizar-data" class="form-control">
                         </div>
                         <br>
                         <div>
                             <label for="typetext">Categoria</label><br>
-                            <input type="text" class="form-control" placeholder="Ex: AceleraZG">
+                            <input type="text" class="form-control" id="atualizar-cat" placeholder="Ex: AceleraZG">
                         </div>
                         <br>
                         <div>
                             <label for="select">Status</label><br>
-                            <select name="selectStatus" class="form-control" id="selectStatus">
+                            <select name="selectStatus" class="form-control" id="atualizar-status">
                                 <option value="todo">A fazer</option>
                                 <option value="doing">Fazendo</option>
                                 <option value="done">Feita</option>
@@ -207,7 +207,7 @@
                         <br>
                         <div>
                             <label for="select">Priodidade</label><br>
-                            <select name="selectPrioridade" class="form-control" id="selectPrioridade">
+                            <select name="selectPrioridade" class="form-control" id="atualizar-prioridade">
                                 <option value="max">Máxima</option>
                                 <option value="alta">Alta</option>
                                 <option value="normal">Normal</option>
