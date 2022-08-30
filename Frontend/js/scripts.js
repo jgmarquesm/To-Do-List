@@ -78,8 +78,11 @@ document.getElementById("listar-tarefas-status").onclick = function() {
     var divListar = document.getElementById("body-tabela-listar").innerHTML;
     divListar = "";
 
-    for (let task of tarefas) {
-        if (task.status == status) {
+    if (status != "all") {
+
+        tarefasStatus = tarefas.filter((item) => item.status == status);
+
+        for (let task of tarefasStatus) {
             divListar += `
             <tr>
                 <th scope="row">${task.titulo}</th>
@@ -90,29 +93,9 @@ document.getElementById("listar-tarefas-status").onclick = function() {
                 <td>${task.categoria}</td>
             </tr>
             `
-        } else if (status == status) {
-            divListar += `
-            <tr>
-                <th scope="row">${task.titulo}</th>
-                <td>${task.descricao}</td>
-                <td>${task.prioridade}</td>
-                <td>${task.status}</td>
-                <td>${task.dataLimite}</td>
-                <td>${task.categoria}</td>
-            </tr>
-            `
-        } else if (status == status) {
-            divListar += `
-            <tr>
-                <th scope="row">${task.titulo}</th>
-                <td>${task.descricao}</td>
-                <td>${task.prioridade}</td>
-                <td>${task.status}</td>
-                <td>${task.dataLimite}</td>
-                <td>${task.categoria}</td>
-            </tr>
-            `
-        } else {
+        }
+    } else {
+        for (let task of tarefas) {
             divListar += `
             <tr>
                 <th scope="row">${task.titulo}</th>
@@ -135,8 +118,11 @@ document.getElementById("update-tarefa").onclick = function() {
     var alertaUpdate = "";
 
     for (let task of tarefas) {
-        console.log(task);
+
         if (tituloTarefaParaAtualizar == task.titulo) {
+
+            tarefas = tarefas.filter((item) => item.titulo !== tituloTarefaParaAtualizar);
+
             var titulo = tituloTarefaParaAtualizar;
             var descricao = document.getElementById("atualizar-desc").value;
             var dataLimite = document.getElementById("atualizar-data").value;
@@ -152,7 +138,7 @@ document.getElementById("update-tarefa").onclick = function() {
                 Tarefa atualizada com sucesso.
             </div>
             `
-            setInterval(showAlert(alertaUpdate), 2000);
+            setInterval(showAlert(alertaUpdate), 1500);
 
             break;
         } else {
@@ -161,7 +147,7 @@ document.getElementById("update-tarefa").onclick = function() {
                 Essa tarefa não está cadastrada.
             </div>
             `
-            setInterval(showAlert(alertaUpdate), 2000);
+            setInterval(showAlert(alertaUpdate), 1500);
         }
     }
 
@@ -189,14 +175,14 @@ document.getElementById("apagar-tarefa").onclick = function() {
             Tarefa apagada com sucesso.
         </div>
         `
-        setInterval(showAlert(alertaDeletar), 2000);
+        setInterval(showAlert(alertaDeletar), 1500);
     } else {
         alertaDeletar = `
         <div class="alert alert-danger" role="alert">
             Essa tarefa não está cadastrada.
         </div>
         `
-        setInterval(showAlert(alertaDeletar), 2000);
+        setInterval(showAlert(alertaDeletar), 1500);
     }
 
     $("#modal-deletar-tarefa").modal("hide");
