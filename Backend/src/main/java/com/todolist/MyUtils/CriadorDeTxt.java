@@ -1,4 +1,4 @@
-package MyUtils;
+package com.todolist.MyUtils;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -8,7 +8,7 @@ public class CriadorDeTxt {
 
     public static void criaArquivoTxt(Tarefa tarefa) {
 
-        String path = "/home/notebook/Área de Trabalho/Github/Projetos/AceleraZG/ZG-Hero_Project/ToDoList/src/Tarefas/" + tarefa.getNome() +".txt";
+        String path = "src/main/resources/Tarefas" + tarefa.getNome() +".txt";
 
         String strFormatada = "[{\"titulo\":" + "\"" + tarefa.getNome() + "\"" + "},{\"descricao\":" + "\"" +
                 tarefa.getDerscicao() + "\"" + "},{\"dataLimite\":"  + "\"" + tarefa.getDataTermino() + "\"" + "}," +

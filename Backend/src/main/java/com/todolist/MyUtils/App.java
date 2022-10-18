@@ -1,4 +1,8 @@
-package MyUtils;
+package com.todolist.MyUtils;
+
+import com.todolist.MyUtils.CaseCadastrarTarefa;
+import com.todolist.MyUtils.CaseDeletarTarefas;
+import com.todolist.MyUtils.CaseListarTarefas;
 
 import javax.swing.*;
 import java.util.Locale;

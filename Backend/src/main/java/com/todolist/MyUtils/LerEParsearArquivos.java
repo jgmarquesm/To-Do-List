@@ -1,4 +1,4 @@
-package MyUtils;
+package com.todolist.MyUtils;
 
 import java.io.*;
 import java.util.ArrayList;

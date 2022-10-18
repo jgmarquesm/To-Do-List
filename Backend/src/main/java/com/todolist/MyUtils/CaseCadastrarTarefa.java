@@ -1,9 +1,8 @@
-package MyUtils;
+package com.todolist.MyUtils;
 
 import javax.swing.*;
-
-import static MyUtils.CriadorDeTxt.criaArquivoTxt;
-import static MyUtils.Tarefa.criarTarefa;
+import static com.todolist.MyUtils.CriadorDeTxt.criaArquivoTxt;
+import static com.todolist.MyUtils.Tarefa.criarTarefa;
 
 public class CaseCadastrarTarefa {
 

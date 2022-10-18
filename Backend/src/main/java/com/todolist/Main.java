@@ -1,4 +1,6 @@
-import MyUtils.App;
+package com.todolist;
+
+import com.todolist.MyUtils.App;
 
 public class Main {
 

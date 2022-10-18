@@ -1,4 +1,4 @@
-package MyUtils;
+package com.todolist.MyUtils;
 
 import javax.swing.*;
 import java.util.Locale;
